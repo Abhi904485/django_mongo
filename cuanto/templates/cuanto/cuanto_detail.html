@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    {% csrf_token %}
+    <table class="table table-striped table-hover  table-dark">
+        <thead>
+        <tr>
+            <th>Team Name</th>
+            <th>Cuanto Url</th>
+            <th>Db Ip</th>
+            <th>DB Password</th>
+            <th>DB User</th>
+            <th>DB Port</th>
+            <th>DB Name</th>
+            <th>DB Connection Status</th>
+            <th>Delete</th>
+            <th>Update</th>
+
+        </tr>
+        </thead>
+        {% if object %}
+            <tbody>
+            <tr>
+                <td>{{ object.team_name }}</td>
+                <td>{{ object.cuanto_url }}</td>
+                <td>{{ object.db_ip }}</td>
+                <td>{{ object.db_pass }}</td>
+                <td>{{ object.db_user }}</td>
+                <td>{{ object.db_port }}</td>
+                <td>{{ object.db_name }}</td>
+                <td>{{ object.db_connection_status }}</td>
+                <td><a class="btn btn-danger" href="{% url 'delete' object.pk %}">Delete</a></td>
+                <td><a class="btn btn-info" href="{% url 'update' object.pk %}">Update</a></td>
+            </tr>
+            </tbody>
+        {% endif %}
+    </table>
+
+{% endblock %}

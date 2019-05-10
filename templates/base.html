@@ -1,0 +1,47 @@
+{% load  static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    {% if  title %}
+        <title>{{ title }}</title>
+    {% else %}
+        <title> Bugzila </title>
+    {% endif %}
+
+    <!-- Bootstrap core CSS -->
+    <link type="text/css" href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
+
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="{% url 'list' %}">Django With Mongo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+            aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" href="{% url 'create' %}">Create Cuanto</a>
+            <a class="nav-item nav-link" href="#">About Us</a>
+            <a class="nav-item nav-link" href="#">Contact Us</a>
+        </div>
+    </div>
+</nav>
+
+<div class="container mt-3">
+
+    {% block content %}
+    {% endblock %}
+</div>
+<script src="{% static 'jquery/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.js' %}"></script>
+
+{% block extra_js %}
+{% endblock %}
+</body>
+
+
+</html>

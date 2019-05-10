@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="panel-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a class="btn btn-block btn-info" data-toggle="collapse" href="#collapse1">Cuanto DB</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse">
+                <ul class="list-group">
+                    {% for db in object_list %}
+                        <li class="list-group-item"><a class="btn btn-outline-info text-justify"
+                                                       href="{% url 'detail' db.pk %}">{{ db.team_name|title }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}

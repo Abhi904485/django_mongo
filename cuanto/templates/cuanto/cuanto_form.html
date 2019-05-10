@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="container">
+        {% if update %}
+            <h2 class="text-center">Update Cuanto</h2>
+        {% else %}
+            <h2 class="text-center">Add Cuanto</h2>
+        {% endif %}
+        <form class="form-horizontal" method="POST">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <p>
+                {% if update %}
+                    <button type="submit" class="btn btn-primary ">Update Cuanto</button>
+                {% else %}
+                    <button type="submit" class="btn btn-primary ">ADD Cuanto</button>
+                {% endif %}
+
+            </p>
+        </form>
+
+    </div>
+{% endblock %}

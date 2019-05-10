@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+    <form method="POST">
+        {% csrf_token %}
+        <fieldset class="form-horizontal">
+            <legend class="border border-bottom mb-4 ">
+                Delete Cuanto DB
+            </legend>
+            <h3>Are You Sure You Want to Delete the Cuanto {{ object.team_name }}</h3>
+        </fieldset>
+        <div class="form-group">
+            <button type="submit" class="btn btn-outline-danger ">Yes, Delete</button>
+            <button type="submit" class="btn btn-outline-secondary ">
+                <a href="{% url 'detail' object.pk %}">Cancel</a>
+            </button>
+        </div>
+    </form>
+{% endblock %}
