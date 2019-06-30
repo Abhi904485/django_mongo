@@ -1,7 +1,9 @@
 from django.db import models
+from djongo import models as m
 
 
 class Cuanto(models.Model):
+    _id = m.ObjectIdField()
     team_name = models.CharField(db_column='TeamName', max_length=50)
     cuanto_url = models.TextField(db_column='cuantoURL')
     db_ip = models.CharField(max_length=50)
